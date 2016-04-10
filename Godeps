@@ -1,0 +1,14 @@
+golang.org/x/crypto/bcrypt
+github.com/bitly/go-simplejson 3378bdcb5cebedcbf8b5750edee28010f128fe24
+github.com/coopernurse/gorp  v1.7
+github.com/gorilla/sessions aa5e036e6c44aec69a32eb41097001978b29ad31
+github.com/justinas/nosurf/ 100c24154ff2b869e95c043ab8f099c18e4d491f
+github.com/lib/pq  7175accbed18058468c07811f76440d6e8d7cf19
+github.com/nu7hatch/gouuid  179d4d0c4d8d407a32af483c2354df1d2c91e6c3
+github.com/zenazn/goji  119938d4b94fdf713efb3340ebd4ba5f3286f520
+github.com/streadway/amqp 6ffc9248c4b16699477e7411084c2402f2f0c351
+github.com/crowdmob/goamz cd22d9897beff6f3de22cec4bdb7d46b9e2dee67
+github.com/goji/glogrus 92ccdaf5e752d8c8d61733f574a9f637c5b2d40c
+github.com/Sirupsen/logrus d2f9ffa1d9cf25b25191b221229effac1b6de526
+github.com/unrolled/secure 7c5d20f5d23b4825dfe542a006b37d6bdb5950f6
+github.com/rcrowley/go-metrics

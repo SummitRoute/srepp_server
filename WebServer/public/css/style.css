@@ -1,0 +1,542 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #f5f5f5;
+	font-size: 90%;
+}
+
+table {
+	width: 100%;
+}
+
+.datafield {
+	background: #f0f0f0;
+	padding: 0 .2em;
+	width: 100%;
+	font-family: Monaco, "Courier New", monospace;
+}
+
+.datalabel {
+	font-weight:bold;
+	padding-right: 10px;
+}
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+	border: 2px solid #62c462;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+	border: 2px solid #ee5f5b;
+}
+
+.parsley-errors-list {
+	margin: 8px 0 3px 0;
+	padding: 0;
+	list-style-type: none;
+	line-height: 0.9em;
+	font-size: 0.9em;
+	opacity: 0;
+	-moz-opacity: 0;
+	-webkit-opacity: 0;
+
+	transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	-ms-transition: all .2s ease-in-;
+	-moz-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+}
+
+.parsley-errors-list.filled {
+	opacity: 1;
+}
+
+.navbar .container .navbar-brand {
+  float: left;
+  background: url('/assets/images/logo.png') no-repeat left center;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size:100% 100%;
+  -o-background-size:100% 100%;
+  height: 43px;
+  width: 200px;
+  padding: 0px 0px;
+	margin-left: 0px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.navbar ul li a {
+	height: 63px;
+}
+
+.navbar .navbar-nav li:hover {
+	text-decoration: underline;
+}
+
+.nested-list ol {
+    counter-reset: item;
+}
+.nested-list ol li {
+    display: block;
+    position: relative;
+}
+.nested-list ol li:before {
+    content: counters(item, ".")".";
+    counter-increment: item;
+    position: absolute;
+    margin-right: 100%;
+    right: 10px; /* space between number and text */
+}
+
+
+.param {
+	font-weight:bold;
+}
+
+table.data_listing th {
+	padding-right: 10px;
+}
+
+table.data_listing td, .hex_data {
+	font-family:"Andale Mono", monospace;
+}
+
+
+
+.flash {
+	margin-bottom: 20px;
+	-webkit-transition: all  1s ease;
+	-moz-transition: all  1s ease;
+	-ms-transition: all  1s ease;
+	-o-transition: all  1s ease;
+	transition: all  1s ease;
+	height: 0;
+	opacity: 0;
+}
+
+.flash.show {
+	height: 50px;
+	opacity: 1;
+}
+
+.has-success .form-control {
+	box-shadow: 0px 0px 5px #aede5d;
+	background-color: #F0FFD1;
+}
+
+.has-error .form-control {
+	box-shadow: 0px 0px 5px #822;
+	background-color: #FFC2C2;
+}
+
+.comment-text {
+	font-size:90%;
+}
+
+
+/******************************************************************************/
+/* Griddle */
+.grid-container {
+	border: 1px solid #DFDFDF;
+	border-radius: 0px;
+}
+
+.griddle table {
+	margin-bottom: 0px;
+	border: 1px solid #ddd;
+}
+
+.griddle thead {
+	background-color: #E0E0E0;
+}
+
+.griddle .footer-container {
+	font-size: 90%;
+	background-color: #E0E0E0;
+}
+
+.griddle button {
+	border:none;
+	background:none;
+	margin:0 10px 0 0;
+	font-weight: bold;
+}
+
+.griddle button:focus {outline:0;}
+
+.griddle table tbody tr:nth-child(even) {
+	background-color: #F0F0F0;
+}
+
+.griddle table>tbody>tr>td, .griddle .table>thead>tr>th  {
+  padding: 2px;
+  border: 1px solid #ddd;
+}
+
+.griddle .griddle-settings input[type=checkbox] {
+  display: none;
+}
+
+.griddle .griddle-settings input[type=checkbox] + span {
+	color: #aaa;
+}
+
+.griddle .griddle-settings input[type=checkbox]:checked + span {
+	color: #000;
+	text-decoration: underline;
+}
+
+.griddle .standard-row td{
+	padding-left:5px;
+	border-bottom:0px;
+	word-wrap : break-word;
+	overflow: hidden;
+	font-size: 90%;
+}
+
+.grid-body .loading{
+	background-image: url('/assets/images/loading.gif');
+	background-repeat: no-repeat;
+	min-height: 32px;
+	width: 32px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+/******************************************************************************/
+/* Filter tokenizer */
+
+
+.filter-tokenizer {
+	width:100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding:10px;
+	font-size: 90%;
+	display:table;
+}
+
+.filter-tokenizer:first-child {
+		padding-left: 0;
+		padding-top:0;
+		padding-bottom:0;
+}
+
+.filter-tokenizer .input-group-addon {
+	border: 0px;
+	border-right: 1px solid #ccc;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	display: table-cell;
+}
+
+.filter-tokenizer .token-collection {
+	display: table-cell;
+}
+
+.filter-tokenizer .typeahead {
+  overflow:auto;
+  display:block;
+}
+
+.filter-tokenizer .typeahead-token {
+	display: block;
+	float:left;
+
+	background-color: #e8e8e8;
+	background-image: linear-gradient(
+      #f0f0f0, #e0e0e0
+    );
+	border: 1px solid #ccc;
+	border-radius: 2px;
+
+	margin:3px;
+	padding:5px;
+
+	font-weight:bold;
+}
+
+
+.filter-input-group {
+	border: 0px;
+	border-radius: 2px;
+
+	overflow:auto;
+  display:block;
+
+	margin:3px;
+	padding:5px;
+}
+
+.filter-input-group .filter-category, .filter-input-group .filter-operator, .filter-input-group .filter-value {
+	overflow:auto;
+	display: block;
+	float:left;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.filter-tokenizer .typeahead input {
+	outline:0;
+	border:0px;
+	width:100%;
+}
+
+.filter-tokenizer .typeahead input:focus {outline:0;}
+
+.filter-tokenizer ul.typeahead-selector {
+	z-index:100;
+	position:absolute;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	background-color:#f8f8f8;
+	border: 1px solid #222;
+	width:200px;
+	max-height:200px;
+	overflow-y:auto;
+
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.filter-tokenizer ul.typeahead-selector li {
+	z-index:9999;
+	border-bottom: 1px solid #ccc;
+	background-image: linear-gradient(
+      #ffffff, #f0f0f0
+    );
+}
+
+.filter-tokenizer ul.typeahead-selector li.header {
+	background-image: none;
+	background-color: #B0B0B0;
+	color: #ffffff;
+	font-weight: bold;
+	padding:5px;
+}
+
+
+.filter-tokenizer ul.typeahead-selector li a {
+	color: #000;
+	padding:5px;
+	width:100%;
+	display:block;
+}
+
+.filter-tokenizer ul.typeahead-selector li a:hover, .filter-tokenizer ul.typeahead-selector .hover a {
+	text-decoration: none;
+	background-color: #00f;
+	color: #fff;
+}
+
+/******************************************************************************/
+.datepicker__triangle {
+	margin-top: -8px;
+	margin-left: -8px;
+}
+.datepicker__triangle, .datepicker__triangle:before {
+	box-sizing: content-box;
+	position: absolute;
+	border: 8px solid transparent;
+	height: 0;
+	width: 1px;
+	border-top: none;
+	border-bottom-color: #f0f0f0;
+}
+.datepicker__triangle:before {
+	content: "";
+	z-index: -1;
+	border-width: 8px;
+	top: -1px;
+	left: -8px;
+	border-bottom-color: #aeaeae;
+}
+
+.datepicker {
+	font-size: 11px;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid #aeaeae;
+	border-radius: 4px;
+	display: inline-block;
+	position: relative;
+
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.datepicker__container {
+	position: absolute;
+	display: inline-block;
+	z-index: 2147483647;
+}
+
+.datepicker__triangle {
+	position: absolute;
+	left: 50px;
+}
+
+.datepicker__header {
+	text-align: center;
+	background-color: #f0f0f0;
+	border-bottom: 1px solid #aeaeae;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	padding-top: 8px;
+	position: relative;
+}
+
+.datepicker__current-month {
+	color: black;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.datepicker__navigation {
+	line-height: 24px;
+	text-align: center;
+	cursor: pointer;
+	position: absolute;
+	top: 10px;
+	width: 0;
+	border: 6px solid transparent;
+}
+.datepicker__navigation--previous {
+	left: 10px;
+	border-right-color: #ccc;
+}
+.datepicker__navigation--previous:hover {
+	border-right-color: #b3b3b3;
+}
+.datepicker__navigation--next {
+	right: 10px;
+	border-left-color: #ccc;
+}
+.datepicker__navigation--next:hover {
+	border-left-color: #b3b3b3;
+}
+
+.datepicker__week-day {
+	color: #ccc;
+	display: inline-block;
+	width: 28px;
+	line-height: 24px;
+}
+
+.datepicker__month {
+	margin: 5px;
+	text-align: center;
+}
+
+.datepicker__day {
+	color: #000;
+	display: inline-block;
+	width: 24px;
+	line-height: 24px;
+	text-align: center;
+	margin: 2px;
+	cursor: pointer;
+}
+.datepicker__day:hover {
+	border-radius: 4px;
+	background-color: #f0f0f0;
+}
+.datepicker__day--today {
+	font-weight: bold;
+}
+.datepicker__day--selected {
+	border-radius: 4px;
+	background-color: #216ba5;
+	color: #fff;
+}
+.datepicker__day--selected:hover {
+	background-color: #1d5d90;
+}
+.datepicker__day--disabled {
+	cursor: default;
+	color: #ccc;
+}
+.datepicker__day--disabled:hover {
+	background-color: transparent;
+}
+
+.datepicker__input {
+	position: relative;
+	line-height: 16px;
+}
+.datepicker__input:focus {
+	outline: none;
+}
+
+
+
+
+/******************************************************************************/
+.barchart svg {
+	border: 1px solid #ddd;
+	background-color: #f0f0f0;
+}
+
+.barchart-tooltip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px 24px;
+  background: #80B5FF;
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.barchart-tooltip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 14px;
+  width: 100%;
+  line-height: 1;
+  color: #80B5FF;
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+  top: 100%;
+  left: 0;
+}
+
+
+/******************************************************************************/
+/* Fixes for react-bootstrap to avoid CSP issues */
+@media screen {
+	.modal {
+		display: block;
+	}
+
+	div.modal .modal-content {
+		overflow: hidden;
+	}
+}

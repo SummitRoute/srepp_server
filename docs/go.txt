@@ -1,0 +1,12 @@
+cd to the directory WebServer and CallbackServer and run `go run server.go` in each.
+
+
+
+Docs
+====
+To see documentation, cd to /gocode/src (the parent dir of this directory).  Then run
+```
+godoc -http=:6060 -path="qdserver"
+```
+
+This will show docs at http://192.168.106.129:6060/pkg/qdserver/WebServer/

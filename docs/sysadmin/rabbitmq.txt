@@ -1,0 +1,43 @@
+RabbitMQ clustering
+
+# Set hostname
+echo node01 > /etc/hostname
+hostname -F /etc/hostname
+
+# Edit /etc/hosts with
+172.31.16.58    node01
+172.31.31.110   node02
+
+# Copy /var/lib/rabbitmq/.erlang.cookie to hosts
+scp /var/lib/rabbitmq/.erlang.cookie
+
+# Restart RabbitMQ servers
+service rabbitmq-server restart
+
+# Ensure ports are open in security group between hosts.  These are 4369, 5672, and 25672
+# Double check with:
+root@node01:~# epmd -names
+epmd: up and running on port 4369 with data:
+name rabbit at port 25672
+
+
+# On all hosts except node01 join to node01
+rabbitmqctl stop_app
+rabbitmqctl join_cluster --disk rabbit@node01
+rabbitmqctl start_app
+
+# Double-check everything
+root@node01:~# rabbitmqctl cluster_status
+Cluster status of node rabbit@node01 ...
+[{nodes,[{disc,[rabbit@node01,rabbit@node02]}]},
+ {running_nodes,[rabbit@node02,rabbit@node01]},
+ {cluster_name,<<"rabbit@node02">>},
+ {partitions,[]}]
+
+
+
+# Guest user's can't access the queues remotely, so need to create a new account
+
+rabbitmqctl add_user rabbit YOUR_PASSWORD
+rabbitmqctl set_user_tags rabbit administrator
+rabbitmqctl set_permissions -p / rabbit ".*" ".*" ".*"

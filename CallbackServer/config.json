@@ -1,0 +1,22 @@
+{
+	"listening_port": "8080",
+	"upload_path": "./uploaded/",
+	"amqp_server": "amqp://guest:guest@localhost:5672/",
+	"database": {
+		"connection_string": "user=postgres password=password dbname=srepp sslmode=disable"
+	},
+	"aws": {
+		"exe_upload": {
+			"bucket_name": "summitroute.file.uploads",
+			"access_key": "YOUR_ACCESS_KEY",
+			"secret_key": "YOUR_SECRET_KEY",
+			"region": "us-east-1"
+		},
+		"catalog_upload": {
+			"bucket_name": "summitroute.catalog.uploads",
+			"access_key": "YOUR_ACCESS_KEY",
+			"secret_key": "YOUR_SECRET_KEY",
+			"region": "us-east-1"
+		}
+	}
+}

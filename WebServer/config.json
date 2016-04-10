@@ -1,0 +1,18 @@
+{
+	"environment": "debug",
+	"listening_port": "8000",
+	"secret": "YOUR_SECRET_FOR_TOKEN",
+	"public_path": "./public",
+	"template_path": "./views",
+	"base_url": "http://192.168.106.129:8000",
+	"database": {
+		"connection_string": "user=postgres password=password dbname=srepp sslmode=disable"
+	},
+	"aws": {
+		"ses": {
+			"access_key": "YOUR_ACCESS_KEY",
+			"secret_key": "YOUR_SECRET_KEY",
+			"region_url": "https://email.us-east-1.amazonaws.com"
+		}
+	}
+}

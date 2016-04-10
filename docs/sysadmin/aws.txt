@@ -1,0 +1,77 @@
+################################################################################
+# EC2
+Use HVM instances that are EBS backed
+
+#############
+Upload cert to cloudfront with:
+aws iam upload-server-certificate \
+  --server-certificate-name SummitRouteSha256 \
+  --certificate-body file://summitroute.com.pem \
+  --private-key file://summitroute.com.key \
+  --certificate-chain file://intermediate.pem \
+  --path /cloudfront/summitroute/
+
+
+
+################################################################################
+# RDS
+
+psql -h srepp.cr8gss9rmqsb.us-east-1.rds.amazonaws.com --port=5432 --dbname=srepp --username=masteruser --password
+
+#
+# Set up db
+#
+
+root@ip-172-31-19-122:/etc/nginx# sudo -u postgres psql srepp
+psql (9.1.14)
+Type "help" for help.
+
+srepp=# \password postgres
+Enter new password:
+Enter it again:
+srepp=# \q
+
+### Create aggregate First function as defined: https://wiki.postgresql.org/wiki/First/last_(aggregate)
+# Run psql again
+CREATE OR REPLACE FUNCTION public.first_agg ( anyelement, anyelement )
+RETURNS anyelement LANGUAGE sql IMMUTABLE STRICT AS $$
+        SELECT $1;
+$$;
+
+-- And then wrap an aggregate around it
+CREATE AGGREGATE public.first (
+        sfunc    = public.first_agg,
+        basetype = anyelement,
+        stype    = anyelement
+);
+
+
+
+################################################################################
+# S3
+
+# Buckets should have policies such as the following
+{
+  "Version": "2008-10-17",
+  "Id": "Policy1420511327413",
+  "Statement": [
+    {
+      "Sid": "Stmt1420511326310",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::393727464233:user/upload_files"
+      },
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::summitroute.file.uploads/*"
+    },
+    {
+      "Sid": "Stmt14205113263102",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::393727464233:user/upload_files"
+      },
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::summitroute.file.uploads"
+    }
+  ]
+}

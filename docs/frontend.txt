@@ -1,0 +1,8 @@
+
+# Front-end building
+
+# cd to the frontend dir and run this to download all the libraries
+npm install --no-bin-links
+
+# To "compile" just run
+gulp

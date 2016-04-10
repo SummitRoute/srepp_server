@@ -1,0 +1,28 @@
+{
+  "db": {
+    "connection_string": "postgresql://postgres:password@localhost/srepp"
+  },
+  "queue" : {
+    "username": "guest",
+    "password": "guest",
+    "host": "localhost"
+  },
+  "tmp_file_path" : "/tmp/fileanalysis/",
+  "aws" : {
+     "s3": {
+       "exe": {
+         "bucket_name": "summitroute.file.uploads",
+         "access_key": "YOUR_ACCESS_KEY",
+         "secret_key": "YOUR_SECRET_KEY",
+         "region": "us-east-1"
+       },
+       "catalog": {
+         "bucket_name": "summitroute.catalog.uploads",
+         "access_key": "YOUR_ACCESS_KEY",
+         "secret_key": "YOUR_SECRET_KEY",
+         "region": "us-east-1"
+       }
+     }
+  },
+  "logpath": "/tmp/taskworker.log"
+}

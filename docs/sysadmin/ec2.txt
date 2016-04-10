@@ -1,0 +1,89 @@
+# TODO: Should review https://www.nsa.gov/ia/_files/os/redhat/rhel5-guide-i731.pdf
+# TODO: Should set ulimit's
+
+################################################################################
+# AWS
+################################################################################
+apt-get update
+apt-get dist-upgrade
+# Helpful
+apt-get -y install vim screen unzip dnsutils postgresql-client curl
+
+# Syncronize time
+apt-get -y install ntp
+
+# For logging
+apt-get -y install rsyslog rsyslog-gnutls
+
+
+
+################################################################################
+# Stop ssh inactivity timeouts
+echo >> /etc/ssh/sshd_config
+echo 'ClientAliveInterval 60' >> /etc/ssh/sshd_config
+service ssh restart
+# Should also set your putty configs
+
+
+
+################################################################################
+# Install RabbitMQ
+
+# - Instructions: http://www.rabbitmq.com/install-debian.html
+
+# Add to /etc/apt/sources.list:
+echo >> /etc/apt/sources.list
+echo 'deb http://www.rabbitmq.com/debian/ testing main' >> /etc/apt/sources.list
+
+# Get key
+wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+# Check against
+ sha1sum rabbitmq-signing-key-public.asc
+34bce0bc9189d428b116898e12d7f20868173105  rabbitmq-signing-key-public.asc
+# Add it
+apt-key add rabbitmq-signing-key-public.asc
+
+# Update and install
+ apt-get update
+ apt-get install rabbitmq-server
+
+# Check rabbitmq version:
+root@deb:~# rabbitmqctl status
+ {running_applications,[{rabbit,"RabbitMQ","3.4.2"},
+
+
+################################################################################
+# Install Python
+apt-get install python
+
+# Install pip
+wget https://bootstrap.pypa.io/get-pip.py
+# Check
+sha1sum get-pip.py
+# 506b689dd920fbcc64e9b0057601a4a555d4e47b  get-pip.py
+
+python get-pip.py
+
+# Install libraries
+pip install pika sqlalchemy pyasn1
+
+# Must install libpq-dev for the postgres driver
+apt-get install libpq-dev build-essential python-dev
+pip install sqlalchemy psycopg2
+
+# For AWS
+pip install boto
+
+
+
+################################################################################
+# Setup supervisord
+apt-get install supervisor
+
+# Upload it
+scp etc.supervisor.conf.d.summitroute.conf admin@aws:/etc/supervisor/conf.d/summitroute.conf
+
+supervisorctl reload
+
+
+

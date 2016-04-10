@@ -1,0 +1,38 @@
+################################################################################
+# Nginx
+# Debian wheezy comes with nginx 1.2.1, but we want at least 1.3.7 to take advantage of OCSP stapling, so need to upgrade it.
+# The following adds the testing distro of debian, which seems to add a lot of stuff
+# I'd prefer not adding so much non-nginx
+
+# Follow instructions on: http://nginxlibrary.com/debian-latest-nginx/
+# Edit /etc/apt/sources.list and add
+deb http://ftp.debian.org/debian/ testing main contrib non-free
+deb-src http://ftp.debian.org/debian/ testing main contrib non-free
+# Edit /etc/apt/preferences (currently empty) and add
+Package: nginx
+Pin: release a=testing
+Pin-Priority: 900
+apt-get install nginx
+# This updates a ton of stuff, I accepted everything, except I kept my local grub file.
+
+
+#
+# Configure nginx
+#
+
+# Replace /etc/nginx/sites-enabled/default
+scp etc.nginx.site-enabled.default.txt {aws_server}:/etc/nginx/sites-enabled/default.conf
+scp etc.nginx.nginx.conf {aws_server}:/etc/nginx/nginx.conf
+
+
+/etc/nginx# mkdir certs
+ mv /tmp/summitroute.com.* certs/.
+
+ # Testing OSCP use: https://blog.kempkens.io/posts/ocsp-stapling-with-nginx/
+ # And run
+openssl s_client -servername app.summitroute.com -connect app.summitroute.com:443 -tls1  -tlsextdebug  -status
+
+
+################################################################################
+# Set up db
+apt-get install postgresql

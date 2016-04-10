@@ -1,0 +1,3 @@
+{
+  "db_connection_string":"user=postgres password=password dbname=srepp sslmode=disable"
+}

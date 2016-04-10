@@ -1,0 +1,75 @@
+{{define "auth/register"}}
+		<form method="post" class="form-horizontal" data-parsley-validate>
+			<input type="hidden" name="csrf_token" value="{{.csrf_token}}">
+		<fieldset>
+
+			<legend>Register</legend>
+			{{range .Flash}}
+				<div class="alert alert-danger">{{.}}</div><p>
+			{{end}}
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="firstname">Name</label>
+				<div class="col-md-3">
+					<input id="firstname" name="firstname" placeholder="First" class="form-control input-md" required="" data-parsley-required-message="Please enter your first name">
+				</div>
+				<div class="col-md-3">
+					<input id="lastname" name="lastname" placeholder="Last" class="form-control input-md" required="" data-parsley-required-message="Please enter your last name">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="email">Email</label>
+				<div class="col-md-6">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-envelope"></i>
+						</span>
+						<input id="email" name="email" type="email" placeholder="Email address" class="form-control input-md" required="" data-parsley-required-message="Please enter your email">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="password">Password</label>
+				<div class="col-md-6">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-key"></i>
+						</span>
+						<input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="" data-parsley-required-message="Please enter your password">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="passwordrepear">Repeat password</label>
+				<div class="col-md-6">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-key"></i>
+						</span>
+						<input id="passwordrepeat" name="passwordrepeat" type="password" placeholder="Repeat password" class="form-control input-md" required="" data-parsley-required-message="Please repeat your password" data-parsley-equalto="#password" data-parsley-equalto-message="Passwords do not match">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for=""></label>
+				<div class="col-md-6">
+					<label class="checkbox-inline" for="terms">
+						<input type="checkbox" name="terms" id="terms" required="" data-parsley-required-message="You can't continue without accepting our Terms and Conditions">
+						I accept the <a href="/terms_and_conditions">terms and conditions</a>
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="register"></label>
+				<div class="col-md-4">
+					<button id="register" name="register" class="btn btn-primary">Register</button>
+				</div>
+			</div>
+
+		</fieldset>
+		</form>
+{{end}}

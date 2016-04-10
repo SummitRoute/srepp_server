@@ -1,0 +1,59 @@
+{{define "auth/signin"}}
+		<form class="form-horizontal" method="post" data-parsley-validate>
+			<input type="hidden" name="csrf_token" value="{{ .csrf_token }}">
+		<fieldset>
+			<legend>Sign In</legend>
+			{{range .Flash}}
+				<div class="alert alert-danger">{{.}} <a href="/forgot_password">Forgot your password?</a></div><p>
+			{{end}}
+
+			<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+				<div class="col-md-6">
+					<span class="comment-text">Summit Route EPP Account <a href="https://SummitRoute.com">What's this?</a></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="email">Email</label>
+				<div class="col-md-6">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-envelope"></i>
+						</span>
+						<input id="email" name="email" type="email" placeholder="Email address" class="form-control input-md" required="" data-parsley-required-message="Please enter your email">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="password">Password</label>
+				<div class="col-md-6">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-key"></i>
+						</span>
+						<input id="password" name="password" type="password" placeholder="Password" class="form-control input-md" required="" data-parsley-required-message="Please enter your password">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="signin"></label>
+				<div class="col-md-4">
+					<button id="signin" name="signin" class="btn btn-primary">Sign In</button>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+				<div class="col-md-6">
+					<span  class="comment-text"><a href="/forgot_password">Can't access your account?</a></span>
+					<br><br>
+					<h4>Don't have a Summit Route account? <a href="/register">Register now</a><h4>
+				</div>
+			</div>
+		</fieldset>
+		</form>
+
+{{end}}
